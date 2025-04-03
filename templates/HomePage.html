@@ -46,115 +46,83 @@
 <body>
     <div class="container">
         <h2>Social Media & Sleep Survey</h2>
-        <form>
-            <label>Enter your Age:</label>
-            <select required>
-                <option value="" disabled selected>Select your age</option>
-                <option>18</option>
-                <option>19</option>
-                <option>20</option>
-                <option>21</option>
-                <option>22</option>
-            </select>
+        <form method="POST" action="{% url 'predict_stress' %}">
+            {% csrf_token %}
+            <label>Age:</label>
+            <input type="text" name="age"><br>
+        
+            <label>Gender (0=Male, 1=Female, 2=Other):</label>
+            <input type="text" name="gender"><br>
+        
+            <label>Avg Social Media Usage (1-7):</label>
+            <input type="text" name="social_media_usage"><br>
+        
+            <label>Dominant Social Media Platform (0-4):</label>
+            <input type="text" name="dominant_platform"><br>
+        
+            <label>Social Media Check Frequency (1-4):</label>
+            <input type="text" name="check_freq"><br>
+        
+            <label>Pre-Sleep SM Use (1-5):</label>
+            <input type="text" name="pre_sleep_usage"><br>
+        
+            <label>Type of Content Consumed (0-2):</label>
+            <input type="text" name="content_type"><br>
+        
+            <label>Sleep Latency (1-5):</label>
+            <input type="text" name="sleep_latency"><br>
+        
+            <label>Total Sleep Time (1-5):</label>
+            <input type="text" name="total_sleep"><br>
+        
+            <label>Sleep Efficiency (1-5):</label>
+            <input type="text" name="sleep_efficiency"><br>
+        
+            <label>Sleep Quality (1-5):</label>
+            <input type="text" name="sleep_quality"><br>
+        
+            <label>WASO (1-5):</label>
+            <input type="text" name="waso"><br>
+        
+            <label>Number of Awakenings (1-4):</label>
+            <input type="text" name="num_awakenings"><br>
+        
+            <label>Melatonin Level (1-4):</label>
+            <input type="text" name="melatonin"><br>
+        
+            <label>Cortisol Level (1-5):</label>
+            <input type="text" name="cortisol"><br>
+        
+            <label>Blue Light Exposure (1-5):</label>
+            <input type="text" name="blue_light_exposure"><br>
+        
+            <label>Stress Level Rating (1-5):</label>
+            <input type="text" name="stress_level"><br>
 
-            <label>Enter your Gender:</label>
-            <select required>
-                <option value="" disabled selected>Select gender</option>
-                <option value="0">Male</option>
-                <option value="1">Female</option>
-                <option value="2">Other</option>
-            </select>
-
-            <label>How many minutes do you use social media daily?</label>
-            <select required>
-                <option value="" disabled selected>Select range</option>
-                <option value="1">10-30m</option>
-                <option value="2">31-60m</option>
-                <option value="3">61-90m</option>
-                <option value="4">91-120m</option>
-                <option value="5">121-150m</option>
-                <option value="6">150-180m</option>
-                <option value="7">>180m</option>
-            </select>
-
-            <label>Which social media platform do you use the most?</label>
-            <select required>
-                <option value="" disabled selected>Select platform</option>
-                <option value="0">Facebook</option>
-                <option value="1">Instagram</option>
-                <option value="2">Snapchat</option>
-                <option value="3">WhatsApp</option>
-                <option value="4">Twitter</option>
-            </select>
-
-            <label>How often do you check social media?</label>
-            <select required>
-                <option value="" disabled selected>Select frequency</option>
-                <option value="1">Less than 5 times</option>
-                <option value="2">5-10 times</option>
-                <option value="3">11-15 times</option>
-                <option value="4">More than 20 times</option>
-            </select>
-
-            <label>How much time do you spend on social media before sleep?</label>
-            <select required>
-                <option value="" disabled selected>Select duration</option>
-                <option value="1">0-5m</option>
-                <option value="2">6-10m</option>
-                <option value="3">11-15m</option>
-                <option value="4">16-20m</option>
-                <option value="5">More than 20m</option>
-            </select>
-
-            <label>How long does it take for you to fall asleep?</label>
-            <select required>
-                <option value="" disabled selected>Select latency</option>
-                <option value="1">Less than 10 mins</option>
-                <option value="2">10-15 mins</option>
-                <option value="3">16-20 mins</option>
-                <option value="4">21-25 mins</option>
-                <option value="5">More than 30 mins</option>
-            </select>
-
-            <label>How many hours do you sleep?</label>
-            <select required>
-                <option value="" disabled selected>Select hours</option>
-                <option value="1">4-5 hours</option>
-                <option value="2">5-6 hours</option>
-                <option value="3">6-7 hours</option>
-                <option value="4">7-8 hours</option>
-                <option value="5">More than 8 hours</option>
-            </select>
-
-            <label>How stressed do you feel daily?</label>
-            <select required>
-                <option value="" disabled selected>Select stress level</option>
-                <option value="1">Not stressed at all</option>
-                <option value="2">Slightly stressed</option>
-                <option value="3">Moderately stressed</option>
-                <option value="4">Very stressed</option>
-                <option value="5">Extremely stressed</option>
-            </select>
-
-            <label>Are you in a relationship?</label>
-            <select required>
-                <option value="" disabled selected>Select</option>
-                <option value="0">No</option>
-                <option value="1">Yes</option>
-            </select>
-
-            <label>How lonely or isolated do you feel?</label>
-            <select required>
-                <option value="" disabled selected>Select level</option>
-                <option value="1">Very low</option>
-                <option value="2">Low</option>
-                <option value="3">Moderate</option>
-                <option value="4">High</option>
-                <option value="5">Very high</option>
-            </select>
-
-            <button type="submit">Submit</button>
+            <label>Anxiety/Depression (1-5):</label>
+            <input type="text" name="anxiety_depression"><br>
+        
+            <label>Restlessness (1-5):</label>
+            <input type="text" name="restlessness"><br>
+        
+            <label>Interest Fluctuation (1-5):</label>
+            <input type="text" name="interest_fluctuation"><br>
+        
+            <label>Relationship Status (0=No, 1=Yes):</label>
+            <input type="text" name="relationship_status"><br>
+        
+            <label>Loneliness/Isolation (1-5):</label>
+            <input type="text" name="loneliness"><br>
+        
+            
+        
+            <button type="submit">Predict Stress Level</button>
         </form>
+        
+        {% if prediction %}
+            <h2>Predicted Addiction Level: {{ prediction }}</h2>
+        {% endif %}
+        
     </div>
 </body>
 </html>
