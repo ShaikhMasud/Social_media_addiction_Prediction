@@ -4,6 +4,7 @@ A smart, secure, and scalable web-based system that predicts the risk of social 
 
 ---
 
+
 ## 🚀 Features
 
 * ✅ **93% Accuracy** using XGBoost classifier (outperforms Random Forest)
@@ -11,7 +12,7 @@ A smart, secure, and scalable web-based system that predicts the risk of social 
 * 🔐 Secure preprocessing for handling sensitive information
 * 📊 Detailed EDA to understand correlations and user behavior patterns
 * 🌐 Real-time prediction via a Django-powered web interface
-* 📋 Personalized recommendations to reduce risk of addiction
+* 📋 Personalized recommendations to reduce risk of addiction using gemini integretion
 
 ---
 
@@ -22,6 +23,10 @@ The core of this system is an XGBoost model, trained on a dataset containing key
 * ✅ **Model Used**: XGBoost Classifier
 * 📁 Trained model stored as a `.pkl` file for seamless integration
 * 📉 Compared against Random Forest and other baseline classifiers
+
+---
+
+Google collab file: https://colab.research.google.com/drive/1fVxxhVHNHtYCqje-S8NCe1n_rQxO7b2c?usp=sharing
 
 ---
 
